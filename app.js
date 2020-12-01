@@ -1,6 +1,6 @@
 
 
-const modelUrl = '/modelTotal/model.json'
+const modelUrl = '/assets/modelTotal/model.json'
 
 
 const imageSize = 224;
