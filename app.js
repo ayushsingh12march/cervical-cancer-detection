@@ -92,7 +92,7 @@ window.runModel = async function () {
     // const output = model.predict(img)
     // const output =await model.predict([img.reshape([1,28,28,1])]).print();
 
-    const output =await model.predict([img.reshape([1,224,224,3])]).array().then(op=> {setTimeout(()=>preloader.style.display = 'none',1000);/*console.log(op+"  hurray!!");*/generateChart(op[0])})
+    const output = await model.predict([img.reshape([1,224,224,3])]).array().then(op=> {setTimeout(()=>preloader.style.display = 'none',1000);/*console.log(op+"  hurray!!");*/generateChart(op[0])})
     // model.predict([tf.tensor(input).reshape([1, 28, 28, 1])]).array()
 
    
@@ -119,7 +119,8 @@ function preprocessInput (imageInput) {
     return preprocessed
   }
 
-async function execute(){
+ function execute(){
   preloader.style.display = 'block';
-  await runModel();
+  // console.log(preloader.style.display);
+  setTimeout(async()=>await runModel(),1000);
 }
